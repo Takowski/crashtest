@@ -3,17 +3,32 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-function App() {
-const animals = ['dog', 'cat', 'rabbit', 'hamster', 'skunk', 'goldfish', 'bird', 'ferret', 'turtle', 'sugar glider', 'chinchilla', 'hedgehog', 'hermit crab', 'gerbil', 'pygmy goat', 'chicken', 'capybara', 'teacup pig', 'serval', 'salamander', 'frog']
-const animalsList = animals.map((animal) => <li key={animal}>{animal}</li>)
-return (
-  <div >
-    <h1 className='text-3xl'>Animals:</h1>
+function ListItems(props) {
+  return <li>{props.animal}</li>
+}
+
+function List(props) {
+  return (
     <ul>
-      {animalsList}
+      {props.animals.map((animal) => {
+        return <ListItems animal={animal} />
+      })}
     </ul>
-  </div>
-);
+  )
+}
+
+
+function App() {
+  const animals = ['dog', 'cat', 'rabbit', 'hamster', 'skunk', 'goldfish', 'bird', 'ferret', 'turtle', 'sugar glider', 'chinchilla', 'hedgehog', 'hermit crab', 'gerbil', 'pygmy goat', 'chicken', 'capybara', 'teacup pig', 'serval', 'salamander', 'frog']
+  
+  return (
+    <div >
+      <h1 className='text-3xl'>Animals:</h1>
+      <ul>
+        <List animals={animals} />
+      </ul>
+    </div>
+  );
 }
 
 export default App
