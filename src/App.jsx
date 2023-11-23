@@ -3,32 +3,25 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-function ListItems(props) {
-  return <li>{props.animal}</li>
+function Button(props) {
+  const buttonStyle = {
+    color: props.color,
+    fontSize: props.fontSize + 'px'
+  };
+
+  return (
+    <button style={buttonStyle}>{props.text}</button>
+  );
 }
 
-function List(props) {
+export default function App() {
   return (
-    <ul>
-      {props.animals.map((animal) => {
-        return <ListItems animal={animal} />
-      })}
-    </ul>
-  )
-}
-
-
-function App() {
-  const animals = ['dog', 'cat', 'rabbit', 'hamster', 'skunk', 'goldfish', 'bird', 'ferret', 'turtle', 'sugar glider', 'chinchilla', 'hedgehog', 'hermit crab', 'gerbil', 'pygmy goat', 'chicken', 'capybara', 'teacup pig', 'serval', 'salamander', 'frog']
-  
-  return (
-    <div >
-      <h1 className='text-3xl'>Animals:</h1>
-      <ul>
-        <List animals={animals} />
-      </ul>
+    <div>
+      <Button text="Click Me!" color="blue" fontSize={12} />
+      <Button text="Don't Click Me!" color="red" fontSize={12} />
+      <Button text="Click Me!" color="blue" fontSize={20} />
     </div>
   );
 }
 
-export default App
+
